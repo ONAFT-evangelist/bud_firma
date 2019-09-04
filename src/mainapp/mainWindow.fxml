@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<!--suppress ALL -->
+
+<AnchorPane prefHeight="607.0" prefWidth="999.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainapp.MainWindow">
+   <children>
+      <TabPane prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Customers">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="customerTable" layoutX="14.0" layoutY="14.0" onMouseClicked="#onCusEdit" prefHeight="550.0" prefWidth="465.0" tableMenuButtonVisible="true">
+                          <columns>
+                              <TableColumn fx:id="cusId" editable="false" prefWidth="39.0" sortable="false" text="id" visible="false" />
+                            <TableColumn fx:id="cusName" editable="false" prefWidth="145.0" text="Name" />
+                              <TableColumn fx:id="cusPhones" editable="false" prefWidth="150.0" sortable="false" text="Phone" />
+                              <TableColumn fx:id="cusCompany" prefWidth="168.0" text="Company" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="cusNameField" layoutX="495.0" layoutY="14.0" prefHeight="25.0" prefWidth="191.0" promptText="Name" />
+                        <TextField fx:id="cusPhoneField" layoutX="495.0" layoutY="55.0" prefHeight="25.0" prefWidth="192.0" promptText="Phone" />
+                        <TextField fx:id="cusCompanyField" layoutX="495.0" layoutY="95.0" prefHeight="25.0" prefWidth="193.0" promptText="Company" />
+                        <Button layoutX="566.0" layoutY="141.0" mnemonicParsing="false" onAction="#insertCustomer" text="Insert" />
+                        <Separator layoutX="479.0" layoutY="178.0" prefHeight="0.0" prefWidth="521.0" />
+                        <TextArea editable="false" layoutX="698.0" layoutY="14.0" prefHeight="47.0" prefWidth="189.0" promptText="All fields are required." />
+                        <TextField fx:id="cusIdField" layoutX="495.0" layoutY="197.0" prefHeight="29.0" prefWidth="190.0" promptText="id" />
+                        <Button layoutX="767.0" layoutY="199.0" mnemonicParsing="false" onAction="#deleteCustomer" text="Delete" />
+                        <Separator layoutX="479.0" layoutY="248.0" prefHeight="0.0" prefWidth="521.0" />
+                        <Button layoutX="767.0" layoutY="141.0" mnemonicParsing="false" onAction="#updateCustomer" text="Update" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Employees">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="employeesTable" layoutX="14.0" layoutY="14.0" onMouseClicked="#onEmpEdit" prefHeight="546.0" prefWidth="509.0" tableMenuButtonVisible="true">
+                          <columns>
+                            <TableColumn fx:id="empId" editable="false" prefWidth="35.0" sortable="false" text="id" visible="false" />
+                            <TableColumn fx:id="empName" prefWidth="115.0" text="Name" />
+                              <TableColumn fx:id="empPhone" prefWidth="139.0" text="Phone" />
+                              <!--suppress JavaFxUnresolvedFxIdReference -->
+                              <TableColumn fx:id="empAddress" prefWidth="120.0" text="Address" />
+                              <TableColumn fx:id="empSalary" prefWidth="51.0" text="Salary" />
+                              <TableColumn fx:id="empExp" prefWidth="69.0" text="Experience" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="empNameField" layoutX="539.0" layoutY="14.0" promptText="Name" />
+                        <TextField fx:id="empPhoneField" layoutX="539.0" layoutY="47.0" promptText="Phone" />
+                        <TextField fx:id="empAddressField" layoutX="539.0" layoutY="80.0" promptText="Address" />
+                        <TextField fx:id="empSalaryField" layoutX="539.0" layoutY="116.0" promptText="Salary" />
+                        <TextField fx:id="empExperienceField" layoutX="539.0" layoutY="153.0" promptText="Experience" />
+                        <Separator layoutX="523.0" layoutY="208.0" prefHeight="0.0" prefWidth="477.0" />
+                        <Button layoutX="763.0" layoutY="116.0" mnemonicParsing="false" onAction="#insertEmployee" text="Insert" />
+                        <Button layoutX="759.0" layoutY="153.0" mnemonicParsing="false" onAction="#updateEmployee" text="Update" />
+                        <TextArea editable="false" layoutX="692.0" layoutY="12.0" prefHeight="99.0" prefWidth="189.0" promptText="All fields are required." />
+                        <Button layoutX="761.0" layoutY="223.0" mnemonicParsing="false" onAction="#deleteEmployee" text="Delete" />
+                        <TextField fx:id="empIdField" layoutX="539.0" layoutY="223.0" promptText="id" />
+                        <Separator layoutX="524.0" layoutY="261.0" prefHeight="0.0" prefWidth="476.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Objects">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="objectsTable" layoutX="14.0" layoutY="14.0" onMouseClicked="#onObjEdit" prefHeight="551.0" prefWidth="555.0" tableMenuButtonVisible="true">
+                          <columns>
+                            <TableColumn fx:id="objId" editable="false" prefWidth="36.0" sortable="false" text="id" visible="false" />
+                            <TableColumn fx:id="objTitle" editable="false" prefWidth="102.0" text="Title" />
+                              <TableColumn fx:id="objAddress" prefWidth="95.0" text="Address" />
+                              <TableColumn fx:id="objType" prefWidth="165.0" text="Type" />
+                              <TableColumn fx:id="objCustomer" prefWidth="178.0" text="Customer" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="objTitleField" layoutX="580.0" layoutY="14.0" promptText="Title" />
+                        <TextField fx:id="objAddressField" layoutX="580.0" layoutY="52.0" promptText="Address" />
+                        <TextArea editable="false" layoutX="738.0" layoutY="15.0" prefHeight="102.0" prefWidth="252.0" promptText="All fields are required." />
+                        <Button layoutX="792.0" layoutY="129.0" mnemonicParsing="false" onAction="#insertObject" text="Insert" />
+                        <Separator layoutX="569.0" layoutY="189.0" prefHeight="0.0" prefWidth="429.0" />
+                        <Button layoutX="792.0" layoutY="202.0" mnemonicParsing="false" onAction="#deleteObject" text="Delete" />
+                        <TextField fx:id="objIdField" layoutX="581.0" layoutY="202.0" promptText="id" />
+                        <Separator layoutX="569.0" layoutY="243.0" prefHeight="0.0" prefWidth="431.0" />
+                        <Button layoutX="891.0" layoutY="129.0" mnemonicParsing="false" onAction="#updateObject" text="Update" />
+                        <TextField fx:id="objTypeField" layoutX="581.0" layoutY="92.0" promptText="Object type (integer)" />
+                        <TextField fx:id="objCustomerField" layoutX="581.0" layoutY="129.0" promptText="Customer (integer)" />
+                        <TableView fx:id="objTypeTable" layoutX="581.0" layoutY="254.0" prefHeight="310.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn fx:id="objTypeId" editable="false" prefWidth="75.0" sortable="false" text="id" />
+                            <TableColumn fx:id="objTypeT" editable="false" prefWidth="123.0" sortable="false" text="Type" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Work Plan">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="planTable" layoutX="14.0" layoutY="14.0" prefHeight="547.0" prefWidth="510.0" tableMenuButtonVisible="true">
+                          <columns>
+                            <TableColumn fx:id="plnId" editable="false" prefWidth="75.0" sortable="false" text="id" visible="false" />
+                            <TableColumn fx:id="plnTitle" prefWidth="75.0" text="Title" />
+                              <TableColumn fx:id="plnAddress" prefWidth="105.0" text="Address" />
+                              <TableColumn fx:id="plnNo" prefWidth="110.0" text="Brigade No" />
+                              <TableColumn fx:id="plnType" prefWidth="111.0" text="Work type" />
+                              <TableColumn fx:id="plnDate" prefWidth="95.0" text="Date started" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="plnTitleField" layoutX="535.0" layoutY="14.0" promptText="Object id" />
+                        <TextField fx:id="plnBrigadeNo" layoutX="535.0" layoutY="51.0" promptText="brigade №" />
+                        <TextField fx:id="plnDateField" layoutX="536.0" layoutY="126.0" promptText="Date" />
+                        <TextArea editable="false" layoutX="697.0" layoutY="14.0" prefHeight="99.0" prefWidth="290.0" promptText="All fields are required. Input only existing values!" />
+                        <Button layoutX="565.0" layoutY="166.0" mnemonicParsing="false" onAction="#insertWorkpln" text="Insert" />
+                        <Separator layoutX="524.0" layoutY="202.0" prefHeight="0.0" prefWidth="477.0" />
+                        <TextField fx:id="planId" layoutX="536.0" layoutY="219.0" promptText="id" />
+                        <Button layoutX="763.0" layoutY="219.0" mnemonicParsing="false" onAction="#deleteWorkpln" text="Delete" />
+                        <Separator layoutX="524.0" layoutY="261.0" prefHeight="0.0" prefWidth="476.0" />
+                        <TextField fx:id="wTypeField" layoutX="535.0" layoutY="88.0" promptText="Work type (integer)" />
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Brigades">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="brigadesTable" layoutX="14.0" layoutY="14.0" onMouseClicked="#onBrigadeEdit" prefHeight="549.0" prefWidth="494.0" tableMenuButtonVisible="true">
+                          <columns>
+                            <TableColumn fx:id="brgId" editable="false" prefWidth="75.0" sortable="false" text="id" visible="false" />
+                              <TableColumn fx:id="brgNo" prefWidth="211.0" text="Brigade No" />
+                              <TableColumn fx:id="brgEmployee" prefWidth="268.0" text="Employee" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="brigadeNoField" layoutX="523.0" layoutY="14.0" promptText="brigade №" />
+                        <TextField fx:id="brigadeEmplField" layoutX="523.0" layoutY="51.0" promptText="Employee (integer)" />
+                        <TextArea editable="false" layoutX="688.0" layoutY="14.0" prefHeight="99.0" prefWidth="189.0" promptText="All fields are required." />
+                        <Button layoutX="523.0" layoutY="88.0" mnemonicParsing="false" onAction="#insertBrigade" text="Insert" />
+                        <Button layoutX="620.0" layoutY="88.0" mnemonicParsing="false" onAction="#updateBrigade" text="Update" />
+                        <Separator layoutX="508.0" layoutY="136.0" prefHeight="0.0" prefWidth="494.0" />
+                        <TextField fx:id="BrIdField" layoutX="523.0" layoutY="152.0" promptText="id" />
+                        <Button layoutX="757.0" layoutY="152.0" mnemonicParsing="false" onAction="#deleteBrigade" text="Delete" />
+                        <Separator layoutX="508.0" layoutY="193.0" prefHeight="0.0" prefWidth="492.0" />
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Work Type">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="wtypeTable" layoutX="14.0" layoutY="14.0" onMouseClicked="#onTypeEdit" prefHeight="552.0" prefWidth="486.0" tableMenuButtonVisible="true">
+                          <columns>
+                            <TableColumn fx:id="wtypeId" editable="false" prefWidth="75.0" sortable="false" text="id" visible="false" />
+                            <TableColumn fx:id="wtypeType" prefWidth="179.0" text="work type" />
+                              <TableColumn fx:id="wtypeDescription" prefWidth="203.0" text="description" />
+                              <TableColumn fx:id="wtypePrice" prefWidth="89.0" text="price" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="WTypeField" layoutX="519.0" layoutY="14.0" promptText="Type" />
+                        <TextField fx:id="WDescrField" layoutX="519.0" layoutY="51.0" promptText="Description" />
+                        <TextField fx:id="WPriceField" layoutX="519.0" layoutY="91.0" promptText="Price" />
+                        <TextArea editable="false" layoutX="697.0" layoutY="14.0" prefHeight="63.0" prefWidth="189.0" promptText="All fields are required." />
+                        <Separator layoutX="500.0" layoutY="137.0" prefHeight="0.0" prefWidth="501.0" />
+                        <TextField fx:id="WidField" layoutX="519.0" layoutY="152.0" promptText="id" />
+                        <Button layoutX="700.0" layoutY="91.0" mnemonicParsing="false" onAction="#insertWorktype" text="Insert" />
+                        <Button layoutX="831.0" layoutY="91.0" mnemonicParsing="false" onAction="#updateWorktype" text="Update" />
+                        <Button layoutX="766.0" layoutY="152.0" mnemonicParsing="false" onAction="#deleteWorktype" text="Delete" />
+                        <Separator layoutX="500.0" layoutY="196.0" prefHeight="0.0" prefWidth="499.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Reports">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea editable="false" layoutX="14.0" layoutY="14.0" prefHeight="55.0" prefWidth="969.0" text="On this page you can display data from some tables in a convenient format of reports in the microsoft excel format. Select the path to save the report and click on the button with the desired report." wrapText="true">
+                           <font>
+                              <Font name="Droid Sans Mono Slashed" size="12.0" />
+                           </font>
+                        </TextArea>
+                        <Button layoutX="169.0" layoutY="357.0" mnemonicParsing="false" onAction="#exportEmployee" text="Export Employee" />
+                        <Label fx:id="dirLabel" layoutX="292.0" layoutY="134.0" text="Directory://" />
+                        <Button layoutX="587.0" layoutY="130.0" mnemonicParsing="false" onAction="#choosePath" text="Choose" />
+                        <Button layoutX="364.0" layoutY="357.0" mnemonicParsing="false" onAction="#exportWtype" text="Export work types" />
+                        <Button layoutX="770.0" layoutY="357.0" mnemonicParsing="false" onAction="#exportWplan" text="Export work plan" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
